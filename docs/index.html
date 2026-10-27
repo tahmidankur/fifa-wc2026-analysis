@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Cup 2026 Analysis</title>
+<meta name="description" content="Player and team stats from the 2026 World Cup, cleaned with pandas and analysed with SQL.">
+<style>
+  body {
+    margin: 0;
+    background: #fff;
+    color: #222;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 32px 16px 60px;
+  }
+  h1 { margin: 0 0 4px; font-size: 28px; }
+  h2 { margin-top: 44px; font-size: 21px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  a { color: #1f6fae; }
+  .sub { color: #666; margin: 0; }
+  img { max-width: 100%; height: auto; display: block; margin: 20px 0; border: 1px solid #eee; }
+  li { margin-bottom: 8px; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 10px; align-items: center; }
+  .filters input[type=search], .filters select {
+    font: inherit; font-size: 15px; padding: 6px 8px; border: 1px solid #bbb; border-radius: 4px;
+  }
+  .filters input[type=search] { flex: 1 1 200px; }
+  .count { color: #666; font-size: 14px; }
+
+  .table-wrap { overflow-x: auto; border: 1px solid #ddd; max-height: 560px; overflow-y: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { padding: 6px 10px; text-align: left; white-space: nowrap; }
+  th { background: #f4f4f4; position: sticky; top: 0; cursor: pointer; user-select: none; }
+  th.num, td.num { text-align: right; }
+  tbody tr:nth-child(even) { background: #fafafa; }
+  th.sorted::after { content: " ▾"; }
+  th.sorted.asc::after { content: " ▴"; }
+
+  footer { margin-top: 50px; color: #777; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>World Cup 2026 Analysis</h1>
+<p class="sub">48 teams, 104 matches, 308 goals.
+  Code on <a href="https://github.com/tahmidankur/fifa-wc2026-analysis">GitHub</a>.</p>
+
+<p>I cleaned the player and match data with pandas, put it in a SQLite database
+I designed, and answered a few questions with SQL. The match scores were all
+checked against Wikipedia, and so was every goalscorer. Six goals in the
+source were credited to the wrong player, which I fixed.</p>
+
+<h2>What I found</h2>
+<ul>
+  <li>Mbappé won the Golden Boot with 10 goals, ahead of Messi (8), Bellingham (7) and Haaland (7).</li>
+  <li>Per 90 minutes, Dembélé (1.49) and Haaland (1.40) scored more often than Mbappé (1.27).</li>
+  <li>Without a minimum minutes filter, Kaan Ayhan is top with 45 goals per 90: one goal in 2 minutes.
+    That's why the per-90 numbers only count players with 180+ minutes.</li>
+  <li>Group matches averaged 2.99 goals, knockout matches 2.68 (leaving out the 4–6 third place match).</li>
+  <li>Spain won it conceding 1 goal in 8 matches. England and France scored the most (20 each)
+    but both went out in the semi-finals.</li>
+</ul>
+
+<h2>Charts</h2>
+<img src="charts/01_top_scorers.png" alt="Bar chart of the top 10 scorers, led by Mbappé with 10 goals">
+<img src="charts/02_goals_per_90.png" alt="Bar chart of goals per 90 minutes for players with at least 180 minutes">
+<img src="charts/03_goals_by_round.png" alt="Bar chart of average goals per match in each round">
+<img src="charts/04_scored_vs_conceded.png" alt="Scatter plot of goals scored and conceded per match for all 48 teams">
+
+<h2>All players</h2>
+<p>Everyone who got on the pitch. Click a column to sort.</p>
+
+<div class="filters">
+  <input type="search" id="search" placeholder="Search player or team" aria-label="Search player or team">
+  <select id="team" aria-label="Team"><option value="">All teams</option></select>
+  <select id="position" aria-label="Position">
+    <option value="">All positions</option>
+    <option value="GK">Goalkeepers</option>
+    <option value="DF">Defenders</option>
+    <option value="MF">Midfielders</option>
+    <option value="FW">Forwards</option>
+  </select>
+  <label><input type="checkbox" id="min180"> 180+ minutes only</label>
+  <span class="count" id="count"></span>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th data-col="0">Player</th>
+        <th data-col="1">Team</th>
+        <th data-col="2">Pos</th>
+        <th data-col="3" class="num">Matches</th>
+        <th data-col="4" class="num">Minutes</th>
+        <th data-col="5" class="num sorted">Goals</th>
+        <th data-col="6" class="num">Assists</th>
+        <th data-col="7" class="num">Goals/90</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+</div>
+
+<footer>
+  Data: <a href="https://github.com/mominullptr/FIFA-World-Cup-2026-Dataset">FIFA World Cup 2026 Dataset</a> (CC0),
+  checked against Wikipedia. Assists are from the source and weren't checked.
+</footer>
+
+</main>
+
+<script>
+let players = [];
+let sortCol = 5;
+let sortAsc = false;
+
+const rows = document.getElementById("rows");
+const search = document.getElementById("search");
+const team = document.getElementById("team");
+const position = document.getElementById("position");
+const min180 = document.getElementById("min180");
+const count = document.getElementById("count");
+const headers = document.querySelectorAll("th");
+
+fetch("players.json")
+  .then(res => res.json())
+  .then(data => {
+    players = data;
+    const teams = [...new Set(data.map(p => p[1]))].sort();
+    for (const t of teams) team.add(new Option(t, t));
+    draw();
+  })
+  .catch(() => {
+    rows.innerHTML = '<tr><td colspan="8">Could not load the player data.</td></tr>';
+  });
+
+function draw() {
+  const q = search.value.trim().toLowerCase();
+  let list = players.filter(p =>
+    (!q || p[0].toLowerCase().includes(q) || p[1].toLowerCase().includes(q)) &&
+    (!team.value || p[1] === team.value) &&
+    (!position.value || p[2] === position.value) &&
+    (!min180.checked || p[4] >= 180)
+  );
+
+  list.sort((a, b) => {
+    const x = a[sortCol], y = b[sortCol];
+    const result = typeof x === "string" ? x.localeCompare(y) : x - y;
+    return sortAsc ? result : -result;
+  });
+
+  rows.innerHTML = "";
+  for (const p of list) {
+    const tr = document.createElement("tr");
+    p.forEach((value, i) => {
+      const td = document.createElement("td");
+      td.textContent = i === 7 ? value.toFixed(2) : value;
+      if (i >= 3) td.className = "num";
+      tr.appendChild(td);
+    });
+    rows.appendChild(tr);
+  }
+  count.textContent = list.length + " players";
+}
+
+headers.forEach(th => {
+  th.addEventListener("click", () => {
+    const col = Number(th.dataset.col);
+    if (col === sortCol) {
+      sortAsc = !sortAsc;
+    } else {
+      sortCol = col;
+      sortAsc = col <= 2;   // text columns A-Z first, numbers biggest first
+    }
+    headers.forEach(h => h.classList.remove("sorted", "asc"));
+    th.classList.add("sorted");
+    if (sortAsc) th.classList.add("asc");
+    draw();
+  });
+});
+
+[search, team, position, min180].forEach(el => el.addEventListener("input", draw));
+</script>
+</body>
+</html>

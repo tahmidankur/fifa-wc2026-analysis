@@ -1,0 +1,105 @@
+match_id,match_date,stage,home_team_id,away_team_id,home_goals,away_goals,result_type
+1,2026-06-11,Group Stage,1,2,2,0,Regular
+2,2026-06-11,Group Stage,3,4,2,1,Regular
+3,2026-06-12,Group Stage,5,6,1,1,Regular
+4,2026-06-12,Group Stage,13,14,4,1,Regular
+5,2026-06-13,Group Stage,7,8,1,1,Regular
+6,2026-06-13,Group Stage,9,10,1,1,Regular
+7,2026-06-13,Group Stage,11,12,0,1,Regular
+8,2026-06-13,Group Stage,15,16,2,0,Regular
+9,2026-06-14,Group Stage,17,18,7,1,Regular
+10,2026-06-14,Group Stage,21,22,2,2,Regular
+11,2026-06-14,Group Stage,19,20,1,0,Regular
+12,2026-06-14,Group Stage,23,24,5,1,Regular
+13,2026-06-15,Group Stage,29,30,0,0,Regular
+14,2026-06-15,Group Stage,25,26,1,1,Regular
+15,2026-06-15,Group Stage,31,32,1,1,Regular
+16,2026-06-15,Group Stage,27,28,2,2,Regular
+17,2026-06-16,Group Stage,33,34,3,1,Regular
+18,2026-06-16,Group Stage,35,36,1,4,Regular
+19,2026-06-16,Group Stage,37,38,3,0,Regular
+20,2026-06-16,Group Stage,39,40,3,1,Regular
+21,2026-06-17,Group Stage,41,42,1,1,Regular
+22,2026-06-17,Group Stage,45,46,4,2,Regular
+23,2026-06-17,Group Stage,47,48,1,0,Regular
+24,2026-06-17,Group Stage,43,44,1,3,Regular
+25,2026-06-18,Group Stage,1,3,1,0,Regular
+26,2026-06-18,Group Stage,4,2,1,1,Regular
+27,2026-06-18,Group Stage,5,7,6,0,Regular
+28,2026-06-18,Group Stage,8,6,4,1,Regular
+29,2026-06-19,Group Stage,9,11,3,0,Regular
+30,2026-06-19,Group Stage,12,10,0,1,Regular
+31,2026-06-19,Group Stage,13,15,2,0,Regular
+32,2026-06-19,Group Stage,16,14,0,1,Regular
+33,2026-06-20,Group Stage,17,19,2,1,Regular
+34,2026-06-20,Group Stage,20,18,0,0,Regular
+35,2026-06-20,Group Stage,21,23,5,1,Regular
+36,2026-06-20,Group Stage,24,22,0,4,Regular
+37,2026-06-21,Group Stage,25,27,0,0,Regular
+38,2026-06-21,Group Stage,28,26,1,3,Regular
+39,2026-06-21,Group Stage,29,31,4,0,Regular
+40,2026-06-21,Group Stage,32,30,2,2,Regular
+41,2026-06-22,Group Stage,33,35,3,0,Regular
+42,2026-06-22,Group Stage,36,34,3,2,Regular
+43,2026-06-22,Group Stage,37,39,2,0,Regular
+44,2026-06-22,Group Stage,40,38,1,2,Regular
+45,2026-06-23,Group Stage,41,43,5,0,Regular
+46,2026-06-23,Group Stage,44,42,1,0,Regular
+47,2026-06-23,Group Stage,45,47,0,0,Regular
+48,2026-06-23,Group Stage,48,46,0,1,Regular
+49,2026-06-24,Group Stage,4,1,0,3,Regular
+50,2026-06-24,Group Stage,2,3,1,0,Regular
+51,2026-06-24,Group Stage,8,5,2,1,Regular
+52,2026-06-24,Group Stage,6,7,3,1,Regular
+53,2026-06-25,Group Stage,12,9,0,3,Regular
+54,2026-06-25,Group Stage,10,11,4,2,Regular
+55,2026-06-25,Group Stage,16,13,3,2,Regular
+56,2026-06-25,Group Stage,14,15,0,0,Regular
+57,2026-06-26,Group Stage,20,17,2,1,Regular
+58,2026-06-26,Group Stage,18,19,0,2,Regular
+59,2026-06-26,Group Stage,24,21,1,3,Regular
+60,2026-06-26,Group Stage,22,23,1,1,Regular
+61,2026-06-27,Group Stage,28,25,1,5,Regular
+62,2026-06-27,Group Stage,26,27,1,1,Regular
+63,2026-06-27,Group Stage,32,29,0,1,Regular
+64,2026-06-27,Group Stage,30,31,0,0,Regular
+65,2026-06-26,Group Stage,36,33,1,4,Regular
+66,2026-06-26,Group Stage,34,35,5,0,Regular
+67,2026-06-27,Group Stage,40,37,1,3,Regular
+68,2026-06-27,Group Stage,38,39,3,3,Regular
+69,2026-06-28,Group Stage,44,41,0,0,Regular
+70,2026-06-28,Group Stage,42,43,3,1,Regular
+71,2026-06-28,Group Stage,48,45,0,2,Regular
+72,2026-06-28,Group Stage,46,47,2,1,Regular
+73,2026-06-29,Round of 32,2,5,0,1,Regular
+74,2026-06-29,Round of 32,9,22,2,1,Regular
+75,2026-06-30,Round of 32,17,14,1,1,Penalties
+76,2026-06-30,Round of 32,21,10,1,1,Penalties
+77,2026-06-30,Round of 32,19,36,1,2,Regular
+78,2026-07-01,Round of 32,33,23,3,0,Regular
+79,2026-07-01,Round of 32,1,20,2,0,Regular
+80,2026-07-01,Round of 32,45,42,2,1,Regular
+81,2026-07-02,Round of 32,25,34,3,2,AET
+82,2026-07-02,Round of 32,13,6,2,0,Regular
+83,2026-07-03,Round of 32,29,39,3,0,Regular
+84,2026-07-03,Round of 32,41,46,2,1,Regular
+85,2026-07-03,Round of 32,8,38,2,0,Regular
+86,2026-07-04,Round of 32,15,26,1,1,Penalties
+87,2026-07-04,Round of 32,37,30,3,2,AET
+88,2026-07-04,Round of 32,44,47,1,0,Regular
+89,2026-07-04,Round of 16,14,33,0,1,Regular
+90,2026-07-04,Round of 16,5,10,0,3,Regular
+91,2026-07-05,Round of 16,9,36,1,2,Regular
+92,2026-07-06,Round of 16,1,45,2,3,Regular
+93,2026-07-06,Round of 16,41,29,0,1,Regular
+94,2026-07-07,Round of 16,13,25,1,4,Regular
+95,2026-07-07,Round of 16,37,26,3,2,Regular
+96,2026-07-07,Round of 16,8,44,0,0,Penalties
+97,2026-07-09,Quarter-final,33,10,2,0,Regular
+98,2026-07-10,Quarter-final,29,25,2,1,Regular
+99,2026-07-11,Quarter-final,36,45,1,2,AET
+100,2026-07-12,Quarter-final,37,8,3,1,AET
+101,2026-07-14,Semi-final,33,29,0,2,Regular
+102,2026-07-15,Semi-final,45,37,1,2,Regular
+103,2026-07-18,Third place,33,45,4,6,Regular
+104,2026-07-19,Final,29,37,1,0,AET

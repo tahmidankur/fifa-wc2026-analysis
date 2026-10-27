@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+
+# The database is rebuilt by scripts/02_build_database.py
+database/
+
+# Power BI file (large; the screenshot goes in charts/ instead)
+*.pbix
+
+# Mac
+.DS_Store

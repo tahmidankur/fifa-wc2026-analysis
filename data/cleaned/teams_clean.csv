@@ -1,0 +1,49 @@
+team_id,team_name,fifa_code,group_name,confederation,matches_played,goals_for,goals_against,stage_reached,goals_per_match
+1,Mexico,MEX,A,CONCACAF,5,10,3,Round of 16,2.0
+2,South Africa,RSA,A,CAF,4,2,4,Round of 32,0.5
+3,South Korea,KOR,A,AFC,3,2,3,Group Stage,0.67
+4,Czechia,CZE,A,UEFA,3,2,6,Group Stage,0.67
+5,Canada,CAN,B,CONCACAF,5,9,6,Round of 16,1.8
+6,Bosnia and Herzegovina,BIH,B,UEFA,4,5,8,Round of 32,1.25
+7,Qatar,QAT,B,AFC,3,2,10,Group Stage,0.67
+8,Switzerland,SUI,B,UEFA,6,10,6,Quarter-final,1.67
+9,Brazil,BRA,C,CONMEBOL,5,10,4,Round of 16,2.0
+10,Morocco,MAR,C,CAF,6,10,6,Quarter-final,1.67
+11,Haiti,HAI,C,CONCACAF,3,2,8,Group Stage,0.67
+12,Scotland,SCO,C,UEFA,3,1,4,Group Stage,0.33
+13,USA,USA,D,CONCACAF,5,11,8,Round of 16,2.2
+14,Paraguay,PAR,D,CONMEBOL,5,3,6,Round of 16,0.6
+15,Australia,AUS,D,AFC,4,3,3,Round of 32,0.75
+16,Türkiye,TUR,D,UEFA,3,3,5,Group Stage,1.0
+17,Germany,GER,E,UEFA,4,11,5,Round of 32,2.75
+18,Curaçao,CUW,E,CONCACAF,3,1,9,Group Stage,0.33
+19,Côte d'Ivoire,CIV,E,CAF,4,5,4,Round of 32,1.25
+20,Ecuador,ECU,E,CONMEBOL,4,2,4,Round of 32,0.5
+21,Netherlands,NED,F,UEFA,4,11,5,Round of 32,2.75
+22,Japan,JPN,F,AFC,4,8,5,Round of 32,2.0
+23,Sweden,SWE,F,UEFA,4,7,10,Round of 32,1.75
+24,Tunisia,TUN,F,CAF,3,2,12,Group Stage,0.67
+25,Belgium,BEL,G,UEFA,6,14,7,Quarter-final,2.33
+26,Egypt,EGY,G,CAF,5,8,7,Round of 16,1.6
+27,IR Iran,IRN,G,AFC,3,3,3,Group Stage,1.0
+28,New Zealand,NZL,G,OFC,3,4,10,Group Stage,1.33
+29,Spain,ESP,H,UEFA,8,14,1,Champion,1.75
+30,Cabo Verde,CPV,H,CAF,4,4,5,Round of 32,1.0
+31,Saudi Arabia,KSA,H,AFC,3,1,5,Group Stage,0.33
+32,Uruguay,URU,H,CONMEBOL,3,3,4,Group Stage,1.0
+33,France,FRA,I,UEFA,8,20,10,Semi-final,2.5
+34,Senegal,SEN,I,CAF,4,10,9,Round of 32,2.5
+35,Iraq,IRQ,I,AFC,3,1,12,Group Stage,0.33
+36,Norway,NOR,I,UEFA,6,13,11,Quarter-final,2.17
+37,Argentina,ARG,J,CONMEBOL,8,19,8,Final,2.38
+38,Algeria,ALG,J,CAF,4,5,9,Round of 32,1.25
+39,Austria,AUT,J,UEFA,4,6,9,Round of 32,1.5
+40,Jordan,JOR,J,AFC,3,3,8,Group Stage,1.0
+41,Portugal,POR,K,UEFA,5,8,3,Round of 16,1.6
+42,Congo DR,COD,K,CAF,4,5,5,Round of 32,1.25
+43,Uzbekistan,UZB,K,AFC,3,2,11,Group Stage,0.67
+44,Colombia,COL,K,CONMEBOL,5,5,1,Round of 16,1.0
+45,England,ENG,L,UEFA,8,20,12,Semi-final,2.5
+46,Croatia,CRO,L,UEFA,4,6,7,Round of 32,1.5
+47,Ghana,GHA,L,CAF,4,2,3,Round of 32,0.5
+48,Panama,PAN,L,CONCACAF,3,0,4,Group Stage,0.0
