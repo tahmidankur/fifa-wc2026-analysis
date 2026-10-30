@@ -55,10 +55,6 @@ Forwards scored 0.34 goals per 90, midfielders 0.13 and defenders 0.03.
 ![Goals by round](charts/03_goals_by_round.png)
 ![Scored vs conceded](charts/04_scored_vs_conceded.png)
 
-<!-- Add after building the dashboard:
-![Power BI dashboard](charts/dashboard.png)
--->
-
 ## Database
 
 ```mermaid
@@ -140,7 +136,6 @@ data/cleaned/     output of step 1
 scripts/          the four steps
 sql/schema.sql    CREATE TABLE statements
 sql/queries.sql   10 queries
-dashboard/        Power BI instructions
 charts/           output of step 3
 docs/             the website (GitHub Pages), filled by step 4
 ```
